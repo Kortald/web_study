@@ -1,0 +1,48 @@
+<?php
+    session_start();
+    require_once('DataBase.php');
+$errors=array();
+    $ct_fail_password=0;
+    $ct_fail_email=0;
+    function save_count()
+    {
+      if($_SESSION['count_error_avtorisation']==0)
+      {
+          $_SESSION['count_error_avtorisation']=1;
+      }
+      else
+      {
+          $_SESSION['count_error_avtorisation']++;
+          if($_SESSION['count_error_avtorisation']==3)
+          {
+              $_SESSION['time_lock_error_avtorisation']=time();
+          }
+      }
+    }
+  if($_POST)
+    {
+        $sql="SELECT id, email, pass FROM user WHERE email=?";
+        $query=$pdo1->prepare($sql);
+        $query->execute([$_POST['us_email']]);
+        $result=$query->fetch();
+        if($result)
+        {
+            if(password_verify($_POST['us_pass'],$result['pass']))
+            {
+                $_SESSION['id']=$result['id'];
+                $_SESSION['email']=$_POST['us_email'];
+                header("Location:../index.php");
+                exit();
+            }
+            else
+            {
+                save_count();
+                $ct_fail_password=1;
+            }
+        }
+        else
+        {
+            save_count();
+            $ct_fail_email=1;
+        }
+    }
