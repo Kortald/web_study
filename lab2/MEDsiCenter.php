@@ -161,7 +161,7 @@
     </div>
 
 
-
+<div class = "filtr">
     <h3 style="margin-top:40px"class="zap">Фильтр</h3>
     <form action="#" method="post">
         <h4 class="zap">Фильтрация по пациенту:</h4>
@@ -183,8 +183,6 @@
             <button type="submit" class="btn btn-secondary btn-sm">Очистить фильтр</button>
         </div>
     </form>
-
-
-
+</div>
 </body>
 </html>
