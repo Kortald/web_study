@@ -141,7 +141,7 @@
                 } else{ ?>
                     <span>Вы не авторизованы.</span>
                     <br>
-                    <a class="link1" href="authorization.php">Ввести логин и пароль</a> или <a class="link1" href="register.php">Зарегистрироваться</a>
+                    <a class="link1" href="login.php">Ввести логин и пароль</a> или <a class="link1" href="register.php">Зарегистрироваться</a>
                 <?php } ?>
             </div>
         </div>

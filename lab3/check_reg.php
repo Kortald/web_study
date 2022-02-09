@@ -1,6 +1,7 @@
 <?php
     session_start();
     require_once('DataBase.php');
+
     $fio="/[a-zA-Zа-яёА-ЯЁ ][^0-9]{1,120}/";
     $address="/[a-zA-Zа-яёА-ЯЁ 0-9]{1,120}/";
     $gender="/[a-zA-Zа-яА-Я ][^0-9]{1,20}/";
@@ -93,3 +94,4 @@
         $_SESSION['errors']=$errors;
         header("Location:../register.php");
     }
+?>

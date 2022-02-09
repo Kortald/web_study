@@ -1,9 +1,10 @@
 <?php
     session_start();
     require_once('DataBase.php');
+
 $errors=array();
-    $ct_fail_password=0;
-    $ct_fail_email=0;
+    $ct_error_password=0;
+    $ct_error_email=0;
     function save_count()
     {
       if($_SESSION['count_error_avtorisation']==0)
@@ -37,12 +38,15 @@ $errors=array();
             else
             {
                 save_count();
-                $ct_fail_password=1;
+                $ct_error_password=1;
+                header("Location:../login.php");
+                
             }
         }
         else
         {
             save_count();
-            $ct_fail_email=1;
+            $ct_error_email=1;
+            header("Location:../login.php");
         }
     }
