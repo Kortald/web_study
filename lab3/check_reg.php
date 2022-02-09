@@ -70,7 +70,7 @@
         $sth->execute();
         $fios = $sth->fetchAll();
         foreach($fios as $tmp) {
-            if ($_POST['us_fio']==$tmp['fio']) $fio_flag=0;
+            if ($_POST['us_fio']==$tmp['fio12']) $fio_flag=0;
         }
         if ($fio_flag==1) {
             $sql="INSERT INTO user SET email=? , pass=?, fio12=?, date=?, adress=?, gender=?, interests=?, vk_link=?, blood=?, rezus=?";
